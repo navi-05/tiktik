@@ -32,6 +32,12 @@ const Detail = ({ postDetails }: IProps) => {
 
   const { userProfile } : any = useAuthStore(); 
 
+  useEffect(() => {
+    if(post && videoRef?.current) {
+      videoRef.current.muted = isVideoMuted; 
+    }
+  }, [isVideoMuted, post])
+  
   if(!post) return null; 
 
   const onVideoClick = () => {
@@ -44,11 +50,6 @@ const Detail = ({ postDetails }: IProps) => {
     }
   }
 
-  useEffect(() => {
-    if(post && videoRef?.current) {
-      videoRef.current.muted = isVideoMuted; 
-    }
-  }, [isVideoMuted, post])
 
   const handleLike = async (like: boolean) => {
     if(userProfile) {
