@@ -14,6 +14,7 @@ const MyApp = ({ Component, pageProps }: AppProps) =>  {
 
   useEffect(() => {
     setIsSSR(false)
+
   }, [])
 
   if(isSSR) return null; 
@@ -22,7 +23,7 @@ const MyApp = ({ Component, pageProps }: AppProps) =>  {
     
   <GoogleOAuthProvider clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}>
       <Head>
-        <title>Tik Tik</title>
+        <title>Tik Tik App</title>
       </Head>
       <div className='xl:w-[1200px] m-auto overflow-hidden h-[100vh]'>
         <Navbar />
